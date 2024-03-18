@@ -14,9 +14,15 @@ public class AuthSystem {
                     System.out.println("Password should be at least 5 characters long");
                     return 3;
                 } else {
-                    users.put(user.getUserEmail(), new User(user.getUsername(), user.getUserEmail(), user.getUserPassword()));
-                    System.out.println("User created successfully");
-                    return 0;
+                		if(user.getUsername().equals("")) {
+                			System.out.println("Empty Username not allowed");
+                			return 4;
+                		}
+                		else {
+                			users.put(user.getUserEmail(), new User(user.getUsername(), user.getUserEmail(), user.getUserPassword()));
+                            System.out.println("User created successfully");
+                            return 0;
+                		}               
                 }
             } else {
                 System.out.println("Invalid email format. Email should be of type <something>@<something>.com");

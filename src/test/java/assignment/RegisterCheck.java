@@ -29,4 +29,16 @@ public class RegisterCheck {
     public void testPasswordSuccessful() {
         assertEquals(3, authSystem.registerUser(new User("user4","user4@example.com","p123")));
     }
+    @Test
+    public void testNullUsername() {
+        assertEquals(4, authSystem.registerUser(new User("","user4@example.com","p12345")));
+    }
+    @Test
+    public void testNullPass() {
+        assertEquals(3, authSystem.registerUser(new User("user","user5@example.com","")));
+    }
+    @Test
+    public void testNullEmail() {
+        assertEquals(1, authSystem.registerUser(new User("user","","p12343153")));
+    }
 }

@@ -25,5 +25,13 @@ public class ForgotPass {
     public void testForgotPassInvalidPassword() {
         assertEquals(1, authSystem.ForgotPassword("user1@example.com","123"));
     }
+    @Test
+    public void testForgotPassNullPassword() {
+        assertEquals(1, authSystem.ForgotPassword("user1@example.com",""));
+    }
+    @Test
+    public void testForgotPassNullEmail() {
+        assertEquals(2, authSystem.ForgotPassword("","pass123"));
+    }
 
 }

@@ -30,6 +30,7 @@ public class HelperCheck {
         assertEquals(false, authSystem.isValidEmail("userexample"));
         assertEquals(false, authSystem.isValidEmail("user10@@example.com"));
         assertEquals(false, authSystem.isValidEmail("user10@somethng@example.com"));
+        assertEquals(false, authSystem.isValidEmail(""));
     }
     @Test
     public void emailExistsValid() {
@@ -38,6 +39,7 @@ public class HelperCheck {
     @Test
     public void emailExistsInValid() {
         assertEquals(false, authSystem.isEmailExists("user5@example.com"));
+        assertEquals(false, authSystem.isEmailExists(""));
     }
 
 }

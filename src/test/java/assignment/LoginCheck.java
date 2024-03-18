@@ -29,4 +29,8 @@ public class LoginCheck {
     public void testNoSuchUser() {
         assertEquals(2, authSystem.Login("nonexistent@example.com", "password123"));
     }
+    @Test
+    public void NullEmail() {
+        assertEquals(2, authSystem.Login("", "password123"));
+    }
 }
