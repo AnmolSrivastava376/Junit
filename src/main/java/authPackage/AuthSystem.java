@@ -29,14 +29,18 @@ public class AuthSystem {
     }
 
 
-    public boolean ForgotPassword(String email, String newPass) {
-        if (users.containsKey(email)) {
+    public int ForgotPassword(String email, String newPass) {
+        if (users.containsKey(email) && newPass.length()>=5) {
             users.get(email).setUserPassword(newPass);
             System.out.println("Password reset successful");
-            return true;
-        } else {
+            return 0;
+        }else if (users.containsKey(email)) {
+        	System.out.println("New password is too short");
+        	return 1;
+        }	
+        else {
             System.out.println("No such user found");
-            return false;
+            return 2;
         }
     }
 
